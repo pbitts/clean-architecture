@@ -9,7 +9,7 @@ const product = ProductFactory.create(
 const input = {
   id: product.id,
   name: "updated P1",
-  price: 11
+  price: 10
 };
 
 const MockRepository = () => {

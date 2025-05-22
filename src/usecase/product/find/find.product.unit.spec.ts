@@ -21,11 +21,11 @@ describe("Unit Test find product use case", () => {
     const usecase = new FindProductUseCase(productRepository);
 
     const input = {
-      id: "123",
+      id: product.id,
     };
 
     const output = {
-      id: "123",
+      id: product.id,
       name: "P1",
       price: 10
     };

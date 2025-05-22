@@ -23,7 +23,6 @@ describe("Unit test create product use case", () => {
 
     expect(output).toEqual({
       id: expect.any(String),
-      type: input.type,
       name: input.name,
       price: input.price
     });
@@ -40,14 +39,15 @@ describe("Unit test create product use case", () => {
     );
   });
 
-  it("should thrown an error when price is missing", async () => {
+  it("should thrown an error when price is negative", async () => {
     const productRepository = MockRepository();
     const productCreateUseCase = new CreateProductUseCase(productRepository);
 
-    input.price = null;
+    input.name = "P1"
+    input.price = -10;
 
     await expect(productCreateUseCase.execute(input)).rejects.toThrow(
-      "Type is required"
+      "Price must be greater than zero"
     );
   });
 });
