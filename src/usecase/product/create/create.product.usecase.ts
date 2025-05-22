@@ -22,7 +22,7 @@ export default class CreateProductUseCase {
       input.price
     );
 
-    await this.productRepository.create(product);
+    await this.productRepository.constructor(product);
 
     return {
       id: product.id,
